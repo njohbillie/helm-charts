@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.11.4
-    created: "2024-07-04T17:09:58.152135-04:00"
+    created: "2024-10-14T08:36:12.215506-04:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -36,4 +36,96 @@ entries:
     urls:
     - https://github.com/njohbillie/helm-charts/argo-cd-7.3.4.tgz
     version: 7.3.4
-generated: "2024-07-04T17:09:58.144317-04:00"
+  cert-manager:
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: 1020CF3C033D4F35BAE1C19E1226061C665DF13E
+        url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
+    apiVersion: v2
+    appVersion: v1.16.1
+    created: "2024-10-14T08:36:12.219912-04:00"
+    description: A Helm chart for cert-manager
+    digest: e6bf08ee8834e6a727e38991978607ea9b729825150a20d7d10be1eb284106e6
+    home: https://cert-manager.io
+    icon: https://raw.githubusercontent.com/cert-manager/community/4d35a69437d21b76322157e6284be4cd64e6d2b7/logo/logo-small.png
+    keywords:
+    - cert-manager
+    - kube-lego
+    - letsencrypt
+    - tls
+    kubeVersion: '>= 1.22.0-0'
+    maintainers:
+    - email: cert-manager-maintainers@googlegroups.com
+      name: cert-manager-maintainers
+      url: https://cert-manager.io
+    name: cert-manager
+    sources:
+    - https://github.com/cert-manager/cert-manager
+    urls:
+    - https://github.com/njohbillie/helm-charts/cert-manager-v1.16.1.tgz
+    version: v1.16.1
+  trust-manager:
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/cert-manager/cert-manager
+    apiVersion: v2
+    appVersion: v0.12.0
+    created: "2024-10-14T08:36:12.220667-04:00"
+    description: trust-manager is the easiest way to manage TLS trust bundles in Kubernetes
+      and OpenShift clusters
+    digest: 5b656d681d0cbaf964993d2136795e35be24660ad5d3868d1f6ff9af238eab61
+    home: https://cert-manager.io/docs/trust/trust-manager
+    icon: https://raw.githubusercontent.com/cert-manager/community/4d35a69437d21b76322157e6284be4cd64e6d2b7/logo/logo-small.png
+    keywords:
+    - trust-manager
+    - cert-manager
+    - tls
+    - trust bundle
+    - trust anchor
+    kubeVersion: '>= 1.25.0-0'
+    maintainers:
+    - email: cert-manager-maintainers@googlegroups.com
+      name: cert-manager-maintainers
+      url: https://cert-manager.io
+    name: trust-manager
+    sources:
+    - https://github.com/cert-manager/trust-manager
+    type: application
+    urls:
+    - https://github.com/njohbillie/helm-charts/trust-manager-v0.12.0.tgz
+    version: v0.12.0
+  vault:
+  - annotations:
+      charts.openshift.io/name: HashiCorp Vault
+    apiVersion: v2
+    appVersion: 1.17.2
+    created: "2024-10-14T08:36:12.223663-04:00"
+    description: Official HashiCorp Vault Chart
+    digest: 99efe00f5527182e76d6e7a0ccf9d4797badd248cb8fe070fbe117e0b6cb58d7
+    home: https://www.vaultproject.io
+    icon: https://github.com/hashicorp/vault/raw/f22d202cde2018f9455dec755118a9b84586e082/Vault_PrimaryLogo_Black.png
+    keywords:
+    - vault
+    - security
+    - encryption
+    - secrets
+    - management
+    - automation
+    - infrastructure
+    kubeVersion: '>= 1.20.0-0'
+    name: vault
+    sources:
+    - https://github.com/hashicorp/vault
+    - https://github.com/hashicorp/vault-helm
+    - https://github.com/hashicorp/vault-k8s
+    - https://github.com/hashicorp/vault-csi-provider
+    urls:
+    - https://github.com/njohbillie/helm-charts/vault-0.28.1.tgz
+    version: 0.28.1
+generated: "2024-10-14T08:36:12.207864-04:00"
