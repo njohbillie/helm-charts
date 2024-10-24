@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ansible-inventory-job
+  namespace: default  # Change this to the desired namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: ansible
+        image: ansible/ansible-runner:latest  # Ensure this image has or you include kubectl
+        command: ["/bin/bash"]
+        args: ["-c", "$(SCRIPT)"]
+        env:
+        - name: SCRIPT
+          value: |
+            #!/bin/bash
+            NAMESPACE=my-namespace
+            INVENTORY_FILE=$(mktemp /tmp/ansible-inventory.XXXXXX)
+            echo "[aks_containers]" > "$INVENTORY_FILE"
+            kubectl get pods -n "$NAMESPACE" -o jsonpath='{.items[*].metadata.name}' | tr " " "\\n" | while read -r pod_name; do
+                pod_ip=$(kubectl get pod "$pod_name" -n "$NAMESPACE" -o jsonpath='{.status.podIP}')
+                echo "$pod_name ansible_host=$pod_ip" >> "$INVENTORY_FILE"
+            done
+            # Your additional commands here, e.g., ansible-playbook -i "$INVENTORY_FILE" your-playbook.yml
+            # cat "$INVENTORY_FILE"  # For debugging
+            # rm "$INVENTORY_FILE"    # Cleanup if necessary
+        volumeMounts:
+        - name: kube-config
+          mountPath: /root/.kube/config
+          subPath: config
+      restartPolicy: Never
+      volumes:
+      - name: kube-config
+        configMap:
+          name: kubeconfig  # This ConfigMap should contain your kubeconfig file named 'config'
+  backoffLimit: 4
