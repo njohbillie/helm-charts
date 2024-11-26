@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.11.4
-    created: "2024-11-10T11:48:33.292567-05:00"
+    created: "2024-11-25T21:18:47.799537-05:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -39,7 +39,7 @@ entries:
   azuredisk-csi-driver:
   - apiVersion: v1
     appVersion: 1.31.0
-    created: "2024-11-10T11:48:33.294262-05:00"
+    created: "2024-11-25T21:18:47.800667-05:00"
     description: Azure disk Container Storage Interface (CSI) Storage Plugin
     digest: 4a805d304b6c9f15aa2e22b26f03792f03568abf1d43139964155f666f889189
     name: azuredisk-csi-driver
@@ -49,7 +49,7 @@ entries:
   azurefile-csi-driver:
   - apiVersion: v1
     appVersion: 1.31.0
-    created: "2024-11-10T11:48:33.29533-05:00"
+    created: "2024-11-25T21:18:47.801702-05:00"
     description: Azure File Container Storage Interface (CSI) Storage Plugin
     digest: 1c845c70fce56ee90b3ce9e043de581eda35d9daaa700adb6cd458af02bd0301
     name: azurefile-csi-driver
@@ -66,7 +66,7 @@ entries:
         url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
     apiVersion: v2
     appVersion: v1.16.1
-    created: "2024-11-10T11:48:33.299689-05:00"
+    created: "2024-11-25T21:18:47.806391-05:00"
     description: A Helm chart for cert-manager
     digest: e6bf08ee8834e6a727e38991978607ea9b729825150a20d7d10be1eb284106e6
     home: https://cert-manager.io
@@ -90,7 +90,7 @@ entries:
   eck-operator:
   - apiVersion: v2
     appVersion: 2.14.0
-    created: "2024-11-10T11:48:33.303465-05:00"
+    created: "2024-11-25T21:18:47.810382-05:00"
     dependencies:
     - condition: installCRDs
       name: eck-operator-crds
@@ -120,7 +120,7 @@ entries:
     version: 2.14.0
   eck-stack:
   - apiVersion: v2
-    created: "2024-11-10T11:48:33.30598-05:00"
+    created: "2024-11-25T21:18:47.812898-05:00"
     dependencies:
     - condition: eck-elasticsearch.enabled
       name: eck-elasticsearch
@@ -165,7 +165,7 @@ entries:
   elasticsearch:
   - apiVersion: v1
     appVersion: 8.5.1
-    created: "2024-11-10T11:48:33.307678-05:00"
+    created: "2024-11-25T21:18:47.814381-05:00"
     description: Official Elastic helm chart for Elasticsearch
     digest: 8a5e70ec72dc480c8a01b079bf7240722da7d017f5683178e23a745d418448ba
     home: https://github.com/elastic/helm-charts
@@ -188,7 +188,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.17.1
-    created: "2024-11-10T11:48:33.310547-05:00"
+    created: "2024-11-25T21:18:47.817509-05:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -225,7 +225,7 @@ entries:
           url: https://github.com/grafana/grafana
     apiVersion: v2
     appVersion: 11.2.2-security-01
-    created: "2024-11-10T11:48:33.31286-05:00"
+    created: "2024-11-25T21:18:47.819938-05:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 64cef28c4e1a3839c64e3f113914aaa92ae9d29c8762b09a2a1d74a242de3a83
     home: https://grafana.com
@@ -262,7 +262,7 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 1.12.0-beta.0
-    created: "2024-11-10T11:48:33.31595-05:00"
+    created: "2024-11-25T21:18:47.82621-05:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: dc04b70ff4b7bfa4f8e7c6ef6524ce0e42f33b6612509481ea57c173e7c28b4e
@@ -285,10 +285,39 @@ entries:
     urls:
     - https://njohbillie.github.io/helm-charts/ingress-nginx-4.12.0-beta.0.tgz
     version: 4.12.0-beta.0
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.11.3
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.11.3
+    created: "2024-11-25T21:18:47.822987-05:00"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: puerco
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - https://njohbillie.github.io/helm-charts/ingress-nginx-4.11.3.tgz
+    version: 4.11.3
   kibana:
   - apiVersion: v1
     appVersion: 8.5.1
-    created: "2024-11-10T11:48:33.316787-05:00"
+    created: "2024-11-25T21:18:47.827093-05:00"
     description: Official Elastic helm chart for Kibana
     digest: dab5f50a4f66a3a62529c336db0df732358c5bac405a17efee1572127b895acf
     home: https://github.com/elastic/helm-charts
@@ -305,7 +334,7 @@ entries:
   logstash:
   - apiVersion: v1
     appVersion: 8.5.1
-    created: "2024-11-10T11:48:33.317637-05:00"
+    created: "2024-11-25T21:18:47.827954-05:00"
     description: Official Elastic helm chart for Logstash
     digest: 70aace1eb5ecb759942e60ffd192a849330582900658a6b306055a9530adb44b
     home: https://github.com/elastic/helm-charts
@@ -329,7 +358,7 @@ entries:
           url: https://github.com/prometheus/prometheus
     apiVersion: v2
     appVersion: v2.55.0
-    created: "2024-11-10T11:48:33.32318-05:00"
+    created: "2024-11-25T21:18:47.833167-05:00"
     dependencies:
     - condition: alertmanager.enabled
       name: alertmanager
@@ -388,7 +417,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.0.2
-    created: "2024-11-10T11:48:33.326414-05:00"
+    created: "2024-11-25T21:18:47.836569-05:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -423,7 +452,7 @@ entries:
         - url: https://artifacthub.io/packages/helm/cert-manager/cert-manager
     apiVersion: v2
     appVersion: v0.12.0
-    created: "2024-11-10T11:48:33.327452-05:00"
+    created: "2024-11-25T21:18:47.837596-05:00"
     description: trust-manager is the easiest way to manage TLS trust bundles in Kubernetes
       and OpenShift clusters
     digest: 5b656d681d0cbaf964993d2136795e35be24660ad5d3868d1f6ff9af238eab61
@@ -452,7 +481,7 @@ entries:
       charts.openshift.io/name: HashiCorp Vault
     apiVersion: v2
     appVersion: 1.17.2
-    created: "2024-11-10T11:48:33.329895-05:00"
+    created: "2024-11-25T21:18:47.840004-05:00"
     description: Official HashiCorp Vault Chart
     digest: 99efe00f5527182e76d6e7a0ccf9d4797badd248cb8fe070fbe117e0b6cb58d7
     home: https://www.vaultproject.io
@@ -480,6 +509,56 @@ entries:
       category: CMS
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.9-debian-12-r3
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r33
+        - name: wordpress
+          image: docker.io/bitnami/wordpress:6.7.1-debian-12-r0
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 6.7.1
+    created: "2024-11-25T21:18:47.88347-05:00"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 7.x.x
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 20.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: WordPress is the world's most popular blogging and content management
+      platform. Powerful yet simple, everyone from students to global corporations
+      use it to build beautiful, functional websites.
+    digest: f8e3c34b4ddfadf74f41feb4954fdbbe64b2bd3a4b64e8dd69e9793d16dee209
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - application
+    - blog
+    - cms
+    - http
+    - php
+    - web
+    - wordpress
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+    urls:
+    - https://njohbillie.github.io/helm-charts/wordpress-24.0.7.tgz
+    version: 24.0.7
+  - annotations:
+      category: CMS
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.9-debian-12-r2
         - name: os-shell
           image: docker.io/bitnami/os-shell:12-debian-12-r32
@@ -488,7 +567,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.6.2
-    created: "2024-11-10T11:48:33.365284-05:00"
+    created: "2024-11-25T21:18:47.87618-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -538,7 +617,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.6.2
-    created: "2024-11-10T11:48:33.358861-05:00"
+    created: "2024-11-25T21:18:47.869121-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -588,7 +667,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.6.2
-    created: "2024-11-10T11:48:33.351546-05:00"
+    created: "2024-11-25T21:18:47.862255-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -638,7 +717,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.6.2
-    created: "2024-11-10T11:48:33.344389-05:00"
+    created: "2024-11-25T21:18:47.854873-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -688,7 +767,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 23.1.29
-    created: "2024-11-10T11:48:33.33736-05:00"
+    created: "2024-11-25T21:18:47.847344-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -726,4 +805,4 @@ entries:
     urls:
     - https://njohbillie.github.io/helm-charts/wordpress-23.1.28.tgz
     version: 23.1.28
-generated: "2024-11-10T11:48:33.284491-05:00"
+generated: "2024-11-25T21:18:47.79033-05:00"
